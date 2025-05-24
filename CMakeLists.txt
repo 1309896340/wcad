@@ -5,26 +5,20 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOMOC ON)
 
-set(CMAKE_PREFIX_PATH
-    "C:/Users/13098/Documents/libraries/libs/QT"
-)
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets OpenGL OpenGLWidgets)
 
 
-file(GLOB MYSRC
-    "src/*.cpp"
-)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+file(GLOB_RECURSE ALL_SOURCES CONFIGURE_DEPENDS "src/*.h" "src/*.cpp" "src/*.ui")
+
 
 
 add_executable(${PROJECT_NAME}
-    "demo/main.cpp"
-    ${MYSRC}
-)
-
-target_include_directories(${PROJECT_NAME} PRIVATE
-    "include"
+    ${ALL_SOURCES}
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
