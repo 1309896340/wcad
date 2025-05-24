@@ -1,4 +1,4 @@
-#include <Canvas.h>
+#include "Canvas.h"
 
 Canvas::Canvas(QWidget* parent):QOpenGLWidget(parent) {
 
