@@ -1,17 +1,15 @@
+#include <QApplication>
+
 #include <iostream>
 
-#include <QApplication>
-#include <QWidget>
+#include "Editor.h"
+
 
 int main(int argc, char**argv){
-    std::cout << "Hello, from windcad!\n";
 
     QApplication app(argc, argv);
 
-    QWidget window;
-    window.setWindowTitle("window");
-    window.show();
-
+    Editor editor("editor");
 
     return app.exec();
 }
