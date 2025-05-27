@@ -3,6 +3,8 @@
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions_4_5_Core>
 
+#include <glm/glm.hpp>
+
 class Canvas : public QOpenGLWidget, protected QOpenGLFunctions_4_5_Core{
 private:
 protected:
@@ -11,4 +13,5 @@ protected:
 	void resizeGL(int w, int h) override;
 public:
 	Canvas(QWidget *parent = nullptr);
+	void setBackground(const glm::vec4& color);
 };

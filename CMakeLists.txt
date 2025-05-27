@@ -13,8 +13,11 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-file(GLOB_RECURSE ALL_SOURCES CONFIGURE_DEPENDS "src/*.h" "src/*.cpp" "src/*.ui")
+set(GLM_DIR
+    "C:/Users/13098/Documents/libraries/libs/glm"
+)
 
+file(GLOB_RECURSE ALL_SOURCES CONFIGURE_DEPENDS "src/*.h" "src/*.cpp" "src/*.ui")
 
 
 add_executable(${PROJECT_NAME}
@@ -26,6 +29,10 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Widgets
     Qt6::OpenGL
     Qt6::OpenGLWidgets
+)
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+    "${GLM_DIR}/include"
 )
 
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
